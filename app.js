@@ -1,6 +1,6 @@
 'use strict';
 
-
+//Assignment 2
 alert('Answer all question with a Yes or No. Y/N is also acceptable.');
 
 var answers =  [];
@@ -107,6 +107,8 @@ for (var k = 0; k < answers.length; k++) {
 alert(nameofuser + ' you got ' + anscounter + ' answers correct');
 console.log('anscounter ',anscounter);
 
+//Assignment 3
+
 var guesscounter = 0;
 var userguess;
 var maxguesses = 4;
@@ -128,26 +130,30 @@ while (userguess !== 7 && guesscounter < maxguesses) {
 console.log('guess counter', guesscounter);
 
 // question 7 starts here
+
 var flag1 = false;
 var citieslived = ['seattle','portland','austin','orlando','london'];
 var uguesscity;
 var maxcityguess = 6;
 var guessnum = 0;
 
+function checkArray(answer, arrayName) {
+  for( var j = 0 ; j < arrayName.length ; j++) {
+    if(arrayName[j] === answer) {
+      flag1 = true;
+    }
+  }
+}
+
 while (!flag1 && guessnum < 6) {
   uguesscity = prompt('Guess a city i have lived, you have ' + (maxcityguess - guessnum) + ' Turns left');
   guessnum++;
 
-  for (var j = 0; j < citieslived.length; j++) {
-    if (citieslived[j] === uguesscity) {
-      flag1 = true;
-      break;
-    }
-  }
+  checkArray(uguesscity, citieslived);
+
   if (!flag1) {
     alert('sorry');
   }else{
     alert('Correct');
-    break;
   }
 }
